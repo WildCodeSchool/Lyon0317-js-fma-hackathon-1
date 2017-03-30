@@ -70,5 +70,8 @@ $(document).ready(function () {
 	});
 
 
-
+	//modal js
+	$('#myModal').on('shown.bs.modal', function () {
+		$('#myInput').focus()
+	})
 });
