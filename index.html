@@ -78,7 +78,7 @@
 				<div class="col-xs-2">
 					<h4>Dernières recherches:</h4>
 					<div v-for="item in historyData">
-						<p> {{item.key}} </p>
+						<a v-on:click="historySearch(item.address)"> {{item.key}} </a>
 					</div>
 				</div>
 			</div>
@@ -89,9 +89,9 @@
 
 	<script src="https://unpkg.com/vue@2.2.6 "></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	 crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="main.js "></script>
+		crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="main.js "></script>
 </body>
 
 </html>

@@ -16,7 +16,10 @@ $(document).ready(function () {
 			typeSearch: 'all',
 			key: '',
 			year: '',
-			historyData: { 'key': '' },
+			historyData: {
+				'key': '',
+				'address': ''
+			},
 
 		},
 
@@ -45,15 +48,25 @@ $(document).ready(function () {
 					app.movies = newsearch;
 				});
 
-				$.post(urlHistory, { key: app.key, address: searchURL }).done(function () { })
-			}//closes research function
+				$.post(urlHistory, { key: app.key, address: searchURL }).done(function () { });
+				$.getJSON(urlHistory).done(function (obj) {
+					app.historyData = obj;
+					console.log(app.historyData);
+				});
+			},//closes research function
+
+			historySearch: function (address) {
+				$.getJSON(address).done(function (searchhistory) {
+					app.movies = searchhistory;
+				});
+			},//closes historySearch
 		} // closes methods
 	});
 
 
 	$.getJSON(urlHistory).done(function (obj) {
 		app.historyData = obj;
-		console.log(historyData);
+		console.log(app.historyData);
 	});
 
 
