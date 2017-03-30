@@ -43,10 +43,14 @@ $(document).ready(function () {
 						console.log(app.typeSearch);
 						searchURL = `http://www.omdbapi.com/?s=${app.key}&plot=full`;
 
-					} else if (app.typeSearch === 'episode') {
+					} else if (app.typeSearch === 'episode' && app.episode !== '') {
 						console.log(app.typeSearch);
 						console.log('dans episode');
 						searchURL = `http://www.omdbapi.com/?t=${app.key}&Season=${app.season}&Episode=${app.episode}&plot=full`;
+					} else if (app.typeSearch === 'episode') {
+						console.log(app.typeSearch);
+						console.log('dans episode');
+						searchURL = `http://www.omdbapi.com/?t=${app.key}&Season=${app.season}&plot=full`;
 					}
 					else {
 						console.log(app.typeSearch);
