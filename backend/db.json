@@ -1,9 +1,124 @@
 {
   "research": [
     {
-      "key": "star",
-      "address": "http://www.omdbapi.com/?s=star&type=movie&plot=full",
-      "id": 1
+      "key": "titanic",
+      "address": "http://www.omdbapi.com/?s=titanic&plot=full",
+      "id": 2
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?s=stargate&plot=full",
+      "id": 16
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=1&Episode=1&plot=full",
+      "id": 17
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&y=1997&Season=1&Episode=1&plot=full",
+      "id": 18
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=10&Episode=1&plot=full",
+      "id": 19
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=10&Episode=1&plot=full",
+      "id": 20
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=10&Episode=&plot=full",
+      "id": 21
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=10&Episode=&plot=full",
+      "id": 22
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=&Episode=&plot=full",
+      "id": 23
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=1&plot=full",
+      "id": 24
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=1&plot=full",
+      "id": 25
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=1&Episode=1&plot=full",
+      "id": 26
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=1&Episode=1&plot=full",
+      "id": 27
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=1&Episode=2&plot=full",
+      "id": 28
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=1&Episode=15&plot=full",
+      "id": 29
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?s=stargate&type=movie&plot=full",
+      "id": 30
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=1&Episode=1&plot=full",
+      "id": 31
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?s=stargate&plot=full",
+      "id": 32
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?s=stargate&plot=full",
+      "id": 33
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?s=stargate&plot=full",
+      "id": 34
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?s=stargate&plot=full",
+      "id": 35
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=1&Episode=1&plot=full",
+      "id": 36
+    },
+    {
+      "key": "stargate",
+      "address": "http://www.omdbapi.com/?t=stargate&Season=1&Episode=1&plot=full",
+      "id": 37
+    },
+    {
+      "key": "Stargate",
+      "address": "http://www.omdbapi.com/?t=Stargate&Season=1&Episode=1&plot=full",
+      "id": 38
     }
   ]
 }

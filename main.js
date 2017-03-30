@@ -11,11 +11,13 @@ $(document).ready(function () {
 				"Year": '',
 				"imdbID": '',
 				"Type": '',
-				"Poster": ''
+				"Poster": '',
 			},
 			typeSearch: 'all',
 			key: '',
 			year: '',
+			episode: '',
+			season: '',
 			historyData: {
 				'key': '',
 				'address': ''
@@ -41,7 +43,12 @@ $(document).ready(function () {
 						console.log(app.typeSearch);
 						searchURL = `http://www.omdbapi.com/?s=${app.key}&plot=full`;
 
-					} else {
+					} else if (app.typeSearch === 'episode') {
+						console.log(app.typeSearch);
+						console.log('dans episode');
+						searchURL = `http://www.omdbapi.com/?t=${app.key}&Season=${app.season}&Episode=${app.episode}&plot=full`;
+					}
+					else {
 						console.log(app.typeSearch);
 						searchURL = `http://www.omdbapi.com/?s=${app.key}&type=${app.typeSearch}&plot=full`;
 					}
@@ -51,9 +58,10 @@ $(document).ready(function () {
 						console.log(app.typeSearch);
 						searchURL = `http://www.omdbapi.com/?s=${app.key}&y=${app.year}&plot=full`;
 
-					} else {
+					} else if (app.typeSearch === 'episode') {
 						console.log(app.typeSearch);
-						searchURL = `http://www.omdbapi.com/?s=${app.key}&y=${app.year}&type=${app.typeSearch}&plot=full`;
+						console.log('dans episode');
+						searchURL = `http://www.omdbapi.com/?t=${app.key}&y=${app.year}&Season=${app.season}&Episode=${app.episode}&plot=full`;
 					}
 				};
 
@@ -61,7 +69,9 @@ $(document).ready(function () {
 				//Get the API adresse
 				$.getJSON(searchURL).done(function (newsearch) {
 					console.log(newsearch);
+					console.log(searchURL);
 					app.movies = newsearch;
+					console.log(app.movies);
 				});
 
 				$.post(urlHistory, { key: app.key, address: searchURL }).done(function () { });

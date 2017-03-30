@@ -29,11 +29,18 @@
 					<label for="disabledSelect">Type: </label>
 					<select v-model="typeSearch" id="type" class="form-control">
 						<option>all</option>
-        <option>movie</option>
-				<option>series</option>
-				<option>episode</option>
-				
-      </select>
+        		<option>movie</option>
+						<option>series</option>
+						<option>episode</option>
+      		</select>
+				</div>
+				<div v-if="typeSearch==='episode'" class="form-group area-input">
+					<label for="season">Season: </label>
+					<input v-model="season" type="text" class="form-control" id="season" placeholder="1">
+				</div>
+				<div v-if="typeSearch==='episode'" class="form-group area-input">
+					<label for="episode">Episode: </label>
+					<input v-model="episode" type="text" class="form-control" id="episode" placeholder="1">
 				</div>
 
 				<div class="form-group area-input">
@@ -53,7 +60,20 @@
 			<!--loop to scann the all object-->
 			<div class="row">
 				<div class="col-xs-9">
-					<div v-for="movie in movies.Search" class="row thumbnail">
+					<div v-if="typeSearch==='episode'&&movies.Title!==''" class="row thumbnail">
+						<div class="col-xs-6">
+							<img v-if="movies.Poster!=='N/A'" class="thumbnail" v-bind:src=movies.Poster width="200" />
+							<img v-else class="thumbnail" src="http://filmfranchises.com/static/img/timthumb.php?src=/static/img/posters/d/despicable_me_3.jpg&w=200&h=297&q=100"
+								width="200" />
+						</div>
+
+						<div class="col-xs-6">
+							<h2><a data-toggle="modal" data-target="#modalDetails" v-on:click="moviedetails(movies.imdbID)" href="">{{movies.Title}}</a></h2>
+							<p>Année : {{movies.Year}} <br> Type: {{movies.Type}}</p>
+							<span class="label label-default">ID : {{movies.imdbID}}</span>
+						</div>
+					</div>
+					<div v-else v-for='movie in movies.Search' class="row thumbnail">
 						<div class="col-xs-6">
 							<img v-if="movie.Poster!=='N/A'" class="thumbnail" v-bind:src=movie.Poster width="200" />
 							<img v-else class="thumbnail" src="http://filmfranchises.com/static/img/timthumb.php?src=/static/img/posters/d/despicable_me_3.jpg&w=200&h=297&q=100"
