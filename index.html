@@ -92,11 +92,17 @@
 						<h4 class="modal-title">{{movieDetails.Title}}</h4>
 					</div>
 					<div class="modal-body">
-						<p>One fine body&hellip;</p>
+						<h4>Acteurs :</h4>
+						<p>{{movieDetails.Actors}}</p>
+						<h4>Réalisateur :</h4>
+						<p>{{movieDetails.Director}}</p>
+						<p>Note : {{movieDetails.imdbRating}}</p>
+						<h4>Résumé :</h4>
+						<p>{{movieDetails.Plot}}</p>
+						<img class="thumbnail" v-bind:src=movieDetails.Poster width="300" />
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
 					</div>
 				</div>
 				<!-- /.modal-content -->
