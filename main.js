@@ -20,7 +20,9 @@ $(document).ready(function () {
 				let key = $('#mot-clef').val();
 				let year = $('#annee').val();
 
+				key = key.split(" ").join("+");
 				console.log(key);
+
 				let searchURL = "";
 				if (year !== "") {
 					searchURL = `http://www.omdbapi.com/?s=${key}&y=${year}&plot=full`;
