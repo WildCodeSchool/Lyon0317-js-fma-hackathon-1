@@ -16,6 +16,7 @@ $(document).ready(function () {
 			typeSearch: 'all',
 			key: '',
 			year: '',
+			historyData: { 'key': '' },
 
 		},
 
@@ -42,17 +43,19 @@ $(document).ready(function () {
 				$.getJSON(searchURL).done(function (newsearch) {
 					console.log(newsearch);
 					app.movies = newsearch;
-
 				});
 
-				$.post(urlHistory, { key: app.key, address: searchURL }).done(function () {
-
-
-
-				})
-
-			}
-		}
+				$.post(urlHistory, { key: app.key, address: searchURL }).done(function () { })
+			}//closes research function
+		} // closes methods
 	});
+
+
+	$.getJSON(urlHistory).done(function (obj) {
+		app.historyData = obj;
+		console.log(historyData);
+	});
+
+
 
 });
