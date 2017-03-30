@@ -11,13 +11,19 @@
 </head>
 
 <body>
+	<div id="searchMovies">
+		<div v-for="movie in movies.Search" class="row thumbnail">
+
+			<img v-bind:src=movie.Poster class="col-lg-3">
+		</div>
+	</div>
 
 
 	<script src="https://unpkg.com/vue@2.2.6 "></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	 crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="main.js "></script>
+		crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="main.js "></script>
 </body>
 
 </html>
