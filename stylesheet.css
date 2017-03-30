@@ -53,7 +53,9 @@ padding-left: 5%;
 background-color: #333;
 border-color: #4f4e4e;
 }
-
+.poster-fix img{
+	margin: 0 auto 0 auto;
+}
 
 	
 a{
