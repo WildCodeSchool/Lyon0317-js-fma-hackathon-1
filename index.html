@@ -8,9 +8,57 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!--<link href="css/style.css" rel="stylesheet">-->
+
 </head>
 
 <body>
+
+	<!--Search form-->
+	<div class="well well-lg container">
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="mot-clef">Mot - clef</label>
+				<input type="text" class="form-control" id="mot-clef" placeholder="Star Wars">
+			</div>
+
+			<div class="form-group">
+				<label for="disabledSelect">Type</label>
+				<select id="type" class="form-control">
+        <option>Film</option>
+				<option>Serie</option>
+				<option>Episode</option>
+					<option>Tout</option>
+      </select>
+			</div>
+
+
+			<div class="form-group">
+				<label for="anne">Anne</label>
+				<input type="text" class="form-control" id="anne" placeholder="anee">
+			</div>
+			<button type="button" class="btn btn-default">Recherche</button>
+		</form>
+	</div>
+
+
+	<!--Display the search-->
+	<div id="searchMovies" class="container">
+		<!--loop to scann the all object-->
+		<div v-for="movie in movies.Search" class="row thumbnail">
+			<div class="row">
+				<div class="col-xs-6">
+					<img class="thumbnail" v-bind:src=movie.Poster width="200" />
+				</div>
+
+				<div class="col-xs-6">
+					<h2>{{movie.Title}}</h2>
+					<p>Année : {{movie.Year}}, Type: {{movie.Type}}</p>
+					<span class="label label-default">ID : {{movie.imdbID}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 
 
