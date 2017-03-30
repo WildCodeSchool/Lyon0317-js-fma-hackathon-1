@@ -30,7 +30,7 @@
 			<form class="form-inline">
 				<div class="form-group area-input">
 					<label for="mot-clef">Mot - clef</label>
-					<input type="text" class="form-control" id="mot-clef" placeholder="">
+					<input v-model="key" type="text" class="form-control" id="mot-clef" placeholder="">
 				</div>
 
 				<div class="form-group area-input">
@@ -46,7 +46,7 @@
 
 				<div class="form-group area-input">
 					<label for="annee">Année</label>
-					<input type="text" class="form-control" id="annee" placeholder="2015">
+					<input v-model="year" type="text" class="form-control" id="annee" placeholder="2015">
 				</div>
 				<div class=" form-group area-input">
 					<button type="button" v-on:click="research()" class="btn btn-default ">Recherche</button>

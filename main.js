@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+	let urlHistory = "http://localhost:3000/research";
+
+
 	let app = new Vue({ //Vue.js variable
 		el: '#searchMovies',
 		data: {
@@ -11,28 +14,27 @@ $(document).ready(function () {
 				"Poster": ''
 			},
 			typeSearch: 'all',
-
+			key: '',
+			year: '',
 
 		},
 
 		methods: {
 			research: function () {
-				let key = $('#mot-clef').val();
-				let year = $('#annee').val();
 
-				key = key.split(" ").join("+");
-				console.log(key);
+				app.key = app.key.split(" ").join("+");
+				console.log(app.key);
 
 				let searchURL = "";
-				if (year !== "") {
-					searchURL = `http://www.omdbapi.com/?s=${key}&y=${year}&plot=full`;
+				if (app.year !== "") {
+					searchURL = `http://www.omdbapi.com/?s=${app.key}&y=${app.year}&plot=full`;
 					if (app.typeSearch === 'all') {
-						searchURL = `http://www.omdbapi.com/?s=${key}&y=${year}&plot=full`;
+						searchURL = `http://www.omdbapi.com/?s=${app.key}&y=${app.year}&plot=full`;
 					} else {
-						searchURL = `http://www.omdbapi.com/?s=${key}&y=${year}&type=${app.typeSearch}&plot=full`;
+						searchURL = `http://www.omdbapi.com/?s=${app.key}&y=${app.year}&type=${app.typeSearch}&plot=full`;
 					}
 				} else {
-					searchURL = `http://www.omdbapi.com/?s=${key}&plot=full`;
+					searchURL = `http://www.omdbapi.com/?s=${app.key}&plot=full`;
 				};
 
 
@@ -42,6 +44,13 @@ $(document).ready(function () {
 					app.movies = newsearch;
 
 				});
+
+				$.post(urlHistory, { key: app.key, address: searchURL }).done(function () {
+
+
+
+				})
+
 			}
 		}
 	});
