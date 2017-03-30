@@ -30,16 +30,16 @@
 			<form class="form-inline">
 				<div class="form-group area-input">
 					<label for="mot-clef">Mot - clef</label>
-					<input type="text" class="form-control" id="mot-clef" placeholder="Star Wars">
+					<input type="text" class="form-control" id="mot-clef" placeholder="">
 				</div>
 
 				<div class="form-group area-input">
 					<label for="disabledSelect">Type</label>
 					<select v-model="typeSearch" id="type" class="form-control">
-						<option  v-bind:value="all">Tout</option>
-        <option v-bind:value="movie">Film</option>
-				<option v-bind:value="series">Série</option>
-				<option v-bind:value="episode">Episode</option>
+						<option>all</option>
+        <option>movie</option>
+				<option>series</option>
+				<option>episode</option>
 				
       </select>
 				</div>
