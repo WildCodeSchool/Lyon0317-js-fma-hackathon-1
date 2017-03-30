@@ -67,7 +67,7 @@
 						</div>
 
 						<div class="col-xs-6">
-							<h2>{{movie.Title}}</h2>
+							<h2><a data-toggle="modal" data-target="#modalDetails" v-on:click="moviedetails(movie.imdbID)" href="">{{movie.Title}}</a></h2>
 							<p>Année : {{movie.Year}}, Type: {{movie.Type}}</p>
 							<span class="label label-default">ID : {{movie.imdbID}}</span>
 						</div>
@@ -89,7 +89,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title">Modal title</h4>
+						<h4 class="modal-title">{{movieDetails.Title}}</h4>
 					</div>
 					<div class="modal-body">
 						<p>One fine body&hellip;</p>
@@ -112,9 +112,9 @@
 
 	<script src="https://unpkg.com/vue@2.2.6 "></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	 crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="main.js "></script>
+		crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="main.js "></script>
 </body>
 
 </html>
