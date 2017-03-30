@@ -20,6 +20,9 @@ $(document).ready(function () {
 				'key': '',
 				'address': ''
 			},
+			movieDetails: {
+				"Title": '',
+			},
 
 		},
 
@@ -60,6 +63,14 @@ $(document).ready(function () {
 					app.movies = searchhistory;
 				});
 			},//closes historySearch
+
+			moviedetails: function (addressMovie) {
+				let urladdressMovie = `http://www.omdbapi.com/?i=${addressMovie}`;
+
+				$.getJSON(urladdressMovie).done(function (searchMovie) {
+					app.movieDetails = searchMovie;
+				});
+			}
 		} // closes methods
 	});
 
@@ -70,8 +81,5 @@ $(document).ready(function () {
 	});
 
 
-	//modal js
-	$('#myModal').on('shown.bs.modal', function () {
-		$('#myInput').focus()
-	})
+
 });
