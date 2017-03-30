@@ -33,15 +33,28 @@ $(document).ready(function () {
 				console.log(app.key);
 
 				let searchURL = "";
-				if (app.year !== "") {
-					searchURL = `http://www.omdbapi.com/?s=${app.key}&y=${app.year}&plot=full`;
+				if (app.year.length < 3) {
+					searchURL = `http://www.omdbapi.com/?s=${app.key}&plot=full`;
+					console.log(app.typeSearch);
+
 					if (app.typeSearch === 'all') {
-						searchURL = `http://www.omdbapi.com/?s=${app.key}&y=${app.year}&plot=full`;
+						console.log(app.typeSearch);
+						searchURL = `http://www.omdbapi.com/?s=${app.key}&plot=full`;
+
 					} else {
-						searchURL = `http://www.omdbapi.com/?s=${app.key}&y=${app.year}&type=${app.typeSearch}&plot=full`;
+						console.log(app.typeSearch);
+						searchURL = `http://www.omdbapi.com/?s=${app.key}&type=${app.typeSearch}&plot=full`;
 					}
 				} else {
-					searchURL = `http://www.omdbapi.com/?s=${app.key}&plot=full`;
+					console.log(app.typeSearch);
+					if (app.typeSearch === 'all') {
+						console.log(app.typeSearch);
+						searchURL = `http://www.omdbapi.com/?s=${app.key}&y=${app.year}&plot=full`;
+
+					} else {
+						console.log(app.typeSearch);
+						searchURL = `http://www.omdbapi.com/?s=${app.key}&y=${app.year}&type=${app.typeSearch}&plot=full`;
+					}
 				};
 
 
@@ -65,7 +78,7 @@ $(document).ready(function () {
 			},//closes historySearch
 
 			moviedetails: function (addressMovie) {
-				let urladdressMovie = `http://www.omdbapi.com/?i=${addressMovie}`;
+				let urladdressMovie = `http://www.omdbapi.com/?i=${addressMovie}&plot=full`;
 
 				$.getJSON(urladdressMovie).done(function (searchMovie) {
 					app.movieDetails = searchMovie;
