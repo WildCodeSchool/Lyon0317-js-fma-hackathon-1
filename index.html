@@ -22,7 +22,10 @@
 
 <body>
 
+
 	<h1>Movies research</h1>
+
+
 	<!--Search form-->
 	<div class="well well-lg container">
 		<form class="form-inline">
@@ -52,6 +55,27 @@
 		</form>
 	</div>
 	<!--end form-->
+
+
+
+
+
+
+	<!--Display the search-->
+	<div id="searchMovies" class="container">
+		<!--loop to scann the all object-->
+		<div v-for="movie in movies.Search" class="row thumbnail">
+			<h2>{{movie.Title}}</h2>
+			<p>Année : {{movie.Year}}</p>
+			<p>ID : {{movie.imdbID}}</p>
+			<p>{{movie.Type}}</p>
+			<img v-bind:src=movie.Poster class="col-lg-3">
+		</div>
+	</div>
+
+
+
+
 
 	<script src="https://unpkg.com/vue@2.2.6 "></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
