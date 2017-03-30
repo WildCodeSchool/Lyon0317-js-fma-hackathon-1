@@ -23,7 +23,7 @@ $(document).ready(function () {
 					//Get the API adresse
 					$.getJSON(searchURL).done(function (newsearch) {
 						console.log(newsearch);
-						app.data = newsearch;
+						this.data = newsearch;
 					});
 				}
 			}
