@@ -13,6 +13,7 @@ $(document).ready(function () {
 				movies,
 
 			},
+
 			methods: {
 				research: function () {
 					let key = $('#mot-clef').val();
@@ -23,7 +24,11 @@ $(document).ready(function () {
 					//Get the API adresse
 					$.getJSON(searchURL).done(function (newsearch) {
 						console.log(newsearch);
-						app.data = newsearch;
+						console.log(movies);
+						app.movies = newsearch;
+						console.log(movies);
+						console.log(this);
+
 					});
 				}
 			}
