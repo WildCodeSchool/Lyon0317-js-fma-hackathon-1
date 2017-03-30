@@ -7,34 +7,26 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<style>
-		body {
-			padding: 5%;
-		}
-		
-		.area-input {
-			padding-left: 5%;
-		}
-	</style>
-	<!--<link href="css/style.css" rel="stylesheet">-->
+	<link href="stylesheet.css" rel="stylesheet">
 
 </head>
 
 <body>
 
 	<div id="searchMovies">
-		<h1>Movies research</h1>
+		<h1 id="main-title">Movies research <img id="logo" src="http://www.freeiconspng.com/uploads/popcorn-png-0.png"></h1>
+
 
 		<!--Search form-->
 		<div class="well well-lg container">
 			<form class="form-inline">
 				<div class="form-group area-input">
-					<label for="mot-clef">Mot - clef</label>
+					<label for="mot-clef">Keyword: </label>
 					<input v-model="key" type="text" class="form-control" id="mot-clef" placeholder="">
 				</div>
 
 				<div class="form-group area-input">
-					<label for="disabledSelect">Type</label>
+					<label for="disabledSelect">Type: </label>
 					<select v-model="typeSearch" id="type" class="form-control">
 						<option>all</option>
         <option>movie</option>
@@ -45,11 +37,11 @@
 				</div>
 
 				<div class="form-group area-input">
-					<label for="annee">Année</label>
+					<label for="annee">Year: </label>
 					<input v-model="year" type="text" class="form-control" id="annee" placeholder="2015">
 				</div>
 				<div class=" form-group area-input">
-					<button type="button" v-on:click="research()" class="btn btn-default ">Recherche</button>
+					<button type="button" v-on:click="research()" class="btn btn-default ">Search</button>
 				</div>
 			</form>
 		</div>
@@ -65,12 +57,12 @@
 						<div class="col-xs-6">
 							<img v-if="movie.Poster!=='N/A'" class="thumbnail" v-bind:src=movie.Poster width="200" />
 							<img v-else class="thumbnail" src="http://filmfranchises.com/static/img/timthumb.php?src=/static/img/posters/d/despicable_me_3.jpg&w=200&h=297&q=100"
-								width="200" />
+							 width="200" />
 						</div>
 
 						<div class="col-xs-6">
 							<h2><a data-toggle="modal" data-target="#modalDetails" v-on:click="moviedetails(movie.imdbID)" href="">{{movie.Title}}</a></h2>
-							<p>Année : {{movie.Year}}, Type: {{movie.Type}}</p>
+							<p>Année : {{movie.Year}} <br> Type: {{movie.Type}}</p>
 							<span class="label label-default">ID : {{movie.imdbID}}</span>
 						</div>
 					</div>
@@ -78,10 +70,10 @@
 
 				<!--HISTORY SEARCH-->
 				<div class="col-xs-2">
-					<h4>Dernières recherches:</h4>
+					<h4>Previous searches:</h4>
 					<div v-for="item in historyData">
 						<a v-on:click="historySearch(item.address)"> {{item.key}}</a>
-						<a v-on:click="deleteHistory(item)">X</a>
+						<a v-on:click="deleteHistory(item)"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
 					</div>
 				</div>
 			</div>
@@ -95,19 +87,21 @@
 						<h4 class="modal-title">{{movieDetails.Title}}</h4>
 					</div>
 					<div class="modal-body">
-						<h4>Acteurs :</h4>
+						<h4>Actors :</h4>
 						<p>{{movieDetails.Actors}}</p>
-						<h4>Réalisateur :</h4>
+						<h4>Director :</h4>
 						<p>{{movieDetails.Director}}</p>
-						<p>Note : {{movieDetails.imdbRating}}</p>
-						<h4>Résumé :</h4>
+						<p>Rating : {{movieDetails.imdbRating}} / 10</p>
+						<h4>Plot :</h4>
 						<p>{{movieDetails.Plot}}</p>
-						<img v-if="movieDetails.Poster!=='N/A'" class="thumbnail" v-bind:src=movieDetails.Poster width="300" />
-						<img v-else class="thumbnail" src="http://filmfranchises.com/static/img/timthumb.php?src=/static/img/posters/d/despicable_me_3.jpg"
-							width="300" />
+						<div class="poster-fix">
+							<img v-if="movieDetails.Poster!=='N/A'" class="thumbnail" v-bind:src=movieDetails.Poster width="300" />
+							<img v-else class="thumbnail" src="http://filmfranchises.com/static/img/timthumb.php?src=/static/img/posters/d/despicable_me_3.jpg"
+							 width="300" />
+						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 					</div>
 				</div>
 				<!-- /.modal-content -->
@@ -123,9 +117,9 @@
 
 	<script src="https://unpkg.com/vue@2.2.6 "></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="main.js "></script>
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="main.js "></script>
 </body>
 
 </html>
