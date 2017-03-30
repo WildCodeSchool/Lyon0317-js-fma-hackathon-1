@@ -11,9 +11,20 @@
 </head>
 
 <body>
-	<div id="searchMovies">
-		<div v-for="movie in movies.Search" class="row thumbnail">
 
+
+
+
+
+
+	<!--Display the search-->
+	<div id="searchMovies" class="container">
+		<!--loop to scann the all object-->
+		<div v-for="movie in movies.Search" class="row thumbnail">
+			<h2>{{movie.Title}}</h2>
+			<p>Année : {{movie.Year}}</p>
+			<p>ID : {{movie.imdbID}}</p>
+			<p>{{movie.Type}}</p>
 			<img v-bind:src=movie.Poster class="col-lg-3">
 		</div>
 	</div>
