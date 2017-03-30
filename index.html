@@ -59,22 +59,31 @@
 		<!--Display the search-->
 		<div class="container">
 			<!--loop to scann the all object-->
-			<div v-for="movie in movies.Search" class="row thumbnail">
-				<div class="row">
-					<div class="col-xs-6">
-						<img class="thumbnail" v-bind:src=movie.Poster width="200" />
-					</div>
+			<div class="row">
+				<div class="col-xs-9">
+					<div v-for="movie in movies.Search" class="row thumbnail">
+						<div class="col-xs-6">
+							<img class="thumbnail" v-bind:src=movie.Poster width="200" />
+						</div>
 
-					<div class="col-xs-6">
-						<h2>{{movie.Title}}</h2>
-						<p>Année : {{movie.Year}}, Type: {{movie.Type}}</p>
-						<span class="label label-default">ID : {{movie.imdbID}}</span>
+						<div class="col-xs-6">
+							<h2>{{movie.Title}}</h2>
+							<p>Année : {{movie.Year}}, Type: {{movie.Type}}</p>
+							<span class="label label-default">ID : {{movie.imdbID}}</span>
+						</div>
+					</div>
+				</div>
+
+				<!--HISTORY SEARCH-->
+				<div class="col-xs-2">
+					<h4>Dernières recherches:</h4>
+					<div v-for="item in historyData">
+						<p> {{item.key}} </p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 
 
 
