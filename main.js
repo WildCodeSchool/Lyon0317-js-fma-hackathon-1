@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
-	let searchURL = 'http://www.omdbapi.com/?s=mask&plot=full';
+	let searchURLdefaut = `http://www.omdbapi.com/?s=mask&plot=full`;
 
 	//Get the API adresse
-	$.getJSON(searchURL).done(function (movies) {
+	$.getJSON(searchURLdefaut).done(function (movies) {
 		console.log(movies);
 
 
@@ -12,12 +12,23 @@ $(document).ready(function () {
 			data: {
 				movies,
 
+			},
+			methods: {
+				research: function () {
+					let key = $('#mot-clef').val();
+					console.log(key);
+
+					let searchURL = `http://www.omdbapi.com/?s=${key}&plot=full`;
+
+					//Get the API adresse
+					$.getJSON(searchURL).done(function (newsearch) {
+						console.log(newsearch);
+						app.data = newsearch;
+					});
+				}
 			}
-		})
-
-
-	});
-
+		});
+	})
 
 
 
