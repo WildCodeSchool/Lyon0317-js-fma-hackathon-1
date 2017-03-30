@@ -1,0 +1,21 @@
+{
+  "research": [
+    {
+      "key": "stars",
+      "id": 1
+    },
+    {
+      "key": "",
+      "id": 2
+    },
+    {
+      "key": "stars",
+      "id": 3
+    },
+    {
+      "key": "stars",
+      "address": "http://www.omdbapi.com/?s=stars&plot=full",
+      "id": 4
+    }
+  ]
+}
