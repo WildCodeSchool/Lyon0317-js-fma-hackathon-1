@@ -70,7 +70,22 @@ $(document).ready(function () {
 				$.getJSON(urladdressMovie).done(function (searchMovie) {
 					app.movieDetails = searchMovie;
 				});
-			}
+			},
+
+			deleteHistory: function (historyItem) {
+				//let position = app.historyData.indexOf(historyItem) + 1;
+				//console.log(position);
+				$.ajax({
+					url: urlHistory + '/' + historyItem.id,
+					type: 'DELETE'
+				}).done(function (reponse) {
+					$.getJSON(urlHistory).done(function (obj) {
+						app.historyData = obj;
+						console.log(app.historyData);
+					});
+				});
+				//app.historyData.splice(position, 1);
+			},
 		} // closes methods
 	});
 
