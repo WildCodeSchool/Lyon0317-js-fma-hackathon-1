@@ -22,7 +22,7 @@
 			<form class="form-inline">
 				<div class="form-group area-input">
 					<label for="mot-clef">Keyword: </label>
-					<input v-model="key" type="text" class="form-control" id="mot-clef" placeholder="">
+					<input v-on:keyup.enter="research()" v-model="key" type="text" class="form-control" id="mot-clef" placeholder="">
 				</div>
 
 				<div class="form-group area-input">
@@ -34,21 +34,21 @@
 						<option>episode</option>
       		</select>
 				</div>
-				<div v-if="typeSearch==='episode'" class="form-group area-input">
-					<label for="season">Season: </label>
-					<input v-model="season" type="text" class="form-control" id="season" placeholder="1">
-				</div>
-				<div v-if="typeSearch==='episode'" class="form-group area-input">
-					<label for="episode">Episode: </label>
-					<input v-model="episode" type="text" class="form-control" id="episode" placeholder="1">
-				</div>
 
 				<div class="form-group area-input">
 					<label for="annee">Year: </label>
-					<input v-model="year" type="text" class="form-control" id="annee" placeholder="2015">
+					<input v-on:keyup.enter="research()" v-model="year" type="text" class="form-control" id="annee" placeholder="2015">
 				</div>
 				<div class=" form-group area-input">
 					<button type="button" v-on:click="research()" class="btn btn-default ">Search</button>
+				</div>
+				<div v-if="typeSearch==='episode'" class="form-group area-input">
+					<label for="season">Season: </label>
+					<input v-on:keyup.enter="research()" v-model="season" type="text" class="form-control" id="season" placeholder="1">
+				</div>
+				<div v-if="typeSearch==='episode'" class="form-group area-input">
+					<label for="episode">Episode: </label>
+					<input v-on:keyup.enter="research()" v-model="episode" type="text" class="form-control" id="episode" placeholder="1">
 				</div>
 			</form>
 		</div>
