@@ -22,26 +22,33 @@
 			<form class="form-inline">
 				<div class="form-group area-input">
 					<label for="mot-clef">Keyword: </label>
-					<input v-model="key" type="text" class="form-control" id="mot-clef" placeholder="">
+					<input v-on:keyup.enter="research()" v-model="key" type="text" class="form-control" id="mot-clef" placeholder="">
 				</div>
 
 				<div class="form-group area-input">
 					<label for="disabledSelect">Type: </label>
 					<select v-model="typeSearch" id="type" class="form-control">
 						<option>all</option>
-        <option>movie</option>
-				<option>series</option>
-				<option>episode</option>
-				
-      </select>
+        		<option>movie</option>
+						<option>series</option>
+						<option>episode</option>
+      		</select>
 				</div>
 
 				<div class="form-group area-input">
 					<label for="annee">Year: </label>
-					<input v-model="year" type="text" class="form-control" id="annee" placeholder="2015">
+					<input v-on:keyup.enter="research()" v-model="year" type="text" class="form-control" id="annee" placeholder="2015">
 				</div>
 				<div class=" form-group area-input">
 					<button type="button" v-on:click="research()" class="btn btn-default ">Search</button>
+				</div>
+				<div v-if="typeSearch==='episode'" class="form-group area-input">
+					<label for="season">Season: </label>
+					<input v-on:keyup.enter="research()" v-model="season" type="text" class="form-control" id="season" placeholder="1">
+				</div>
+				<div v-if="typeSearch==='episode'" class="form-group area-input">
+					<label for="episode">Episode: </label>
+					<input v-on:keyup.enter="research()" v-model="episode" type="text" class="form-control" id="episode" placeholder="1">
 				</div>
 			</form>
 		</div>
@@ -53,16 +60,43 @@
 			<!--loop to scann the all object-->
 			<div class="row">
 				<div class="col-xs-9">
-					<div v-for="movie in movies.Search" class="row thumbnail">
+					<div v-if="typeSearch==='episode' && episode!=='' && movies.Title!==''" class="row thumbnail">
+						<div class="col-xs-6">
+							<img v-if="movies.Poster!=='N/A'" class="thumbnail" v-bind:src=movies.Poster width="200" />
+							<img v-else class="thumbnail" src="http://filmfranchises.com/static/img/timthumb.php?src=/static/img/posters/d/despicable_me_3.jpg&w=200&h=297&q=100"
+								width="200" />
+						</div>
+
+						<div class="col-xs-6">
+							<h2><a data-toggle="modal" data-target="#modalDetails" v-on:click="moviedetails(movies.imdbID)" href="">{{movies.Title}}</a></h2>
+							<p>Year : {{movies.Year}} <br> Type: {{movies.Type}}</p>
+							<p>Season : {{movies.Season}} <br> Episode: {{movies.Episode}}</p>
+							<span class="label label-default">ID : {{movies.imdbID}}</span>
+						</div>
+					</div>
+					<div v-else-if="typeSearch==='episode' && movies.Title!==''" v-for='movie in movies.Episodes' class="row thumbnail">
 						<div class="col-xs-6">
 							<img v-if="movie.Poster!=='N/A'" class="thumbnail" v-bind:src=movie.Poster width="200" />
 							<img v-else class="thumbnail" src="http://filmfranchises.com/static/img/timthumb.php?src=/static/img/posters/d/despicable_me_3.jpg&w=200&h=297&q=100"
-							 width="200" />
+								width="200" />
 						</div>
 
 						<div class="col-xs-6">
 							<h2><a data-toggle="modal" data-target="#modalDetails" v-on:click="moviedetails(movie.imdbID)" href="">{{movie.Title}}</a></h2>
-							<p>Année : {{movie.Year}} <br> Type: {{movie.Type}}</p>
+							<p>Season : {{season}} <br> Episode: {{movie.Episode}}</p>
+							<span class="label label-default">ID : {{movie.imdbID}}</span>
+						</div>
+					</div>
+					<div v-else v-for='movie in movies.Search' class="row thumbnail">
+						<div class="col-xs-6">
+							<img v-if="movie.Poster!=='N/A'" class="thumbnail" v-bind:src=movie.Poster width="200" />
+							<img v-else class="thumbnail" src="http://filmfranchises.com/static/img/timthumb.php?src=/static/img/posters/d/despicable_me_3.jpg&w=200&h=297&q=100"
+								width="200" />
+						</div>
+
+						<div class="col-xs-6">
+							<h2><a data-toggle="modal" data-target="#modalDetails" v-on:click="moviedetails(movie.imdbID)" href="">{{movie.Title}}</a></h2>
+							<p>Year : {{movie.Year}} <br> Type: {{movie.Type}}</p>
 							<span class="label label-default">ID : {{movie.imdbID}}</span>
 						</div>
 					</div>
@@ -92,12 +126,13 @@
 						<h4>Director :</h4>
 						<p>{{movieDetails.Director}}</p>
 						<p>Rating : {{movieDetails.imdbRating}} / 10</p>
+						<p>Year : {{movieDetails.Year}} <br> Type: {{movieDetails.Type}}</p>
 						<h4>Plot :</h4>
 						<p>{{movieDetails.Plot}}</p>
 						<div class="poster-fix">
 							<img v-if="movieDetails.Poster!=='N/A'" class="thumbnail" v-bind:src=movieDetails.Poster width="300" />
 							<img v-else class="thumbnail" src="http://filmfranchises.com/static/img/timthumb.php?src=/static/img/posters/d/despicable_me_3.jpg"
-							 width="300" />
+								width="300" />
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -117,9 +152,9 @@
 
 	<script src="https://unpkg.com/vue@2.2.6 "></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	 crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="main.js "></script>
+		crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="main.js "></script>
 </body>
 
 </html>

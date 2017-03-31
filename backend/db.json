@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "research": [
     {
       "key": "england",
@@ -6,4 +7,7 @@
       "id": 1
     }
   ]
+=======
+  "research": []
+>>>>>>> e8984b1f5ef7a78fa4c4ebab9397dc486e570790
 }

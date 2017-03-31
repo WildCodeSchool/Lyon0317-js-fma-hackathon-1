@@ -9,7 +9,9 @@ body {
 	 	font-family: 'Raleway', sans-serif;
 		 font-size: 16px;
 }
-
+.form-control{
+	margin: 5px;
+}
 #main-title{
 	color: #bc3131;
 	text-align: center;
@@ -52,6 +54,10 @@ padding-left: 5%;
 .thumbnail{
 background-color: #333;
 border-color: #4f4e4e;
+}
+
+.poster-fix img{
+	margin: 0 auto 0 auto;
 }
 
 	
